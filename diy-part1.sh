@@ -24,7 +24,7 @@ cat target/linux/bcm53xx/Makefile |grep KERNEL_PATCHVER
 git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/rufengsuixing
 
 #添加likanchen的K3屏幕插件
-git clonehttps://github.com/likanchen/luci-app-k3screenctrl.git package/lean/luci-app-k3screenctrl
+git clone https://github.com/likanchen/luci-app-k3screenctrl.git package/lean/luci-app-k3screenctrl
 
 #替换likanchen的K3屏幕驱动
 rm -rf package/lean/k3screenctrl
