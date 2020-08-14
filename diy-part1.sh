@@ -28,8 +28,7 @@ git clonehttps://github.com/likanchen/luci-app-k3screenctrl.git package/lean/luc
 
 #替换likanchen的K3屏幕驱动
 rm -rf package/lean/k3screenctrl
-git clone https://github.com/likanchen/k3screenctrl_build.git package/lean/k3screenctrl
-git clone https://github.com/likanchen/k3screenctrl_build.git package/lean/k3screenctrl_build/
+git clone https://github.com/likanchen/k3screenctrl_build.git package/lean/k3screenctrl/
 
 #替换K3的无线驱动
 wget https://github.com/Hill-98/phicommk3-firmware/archive/master.zip -O package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/master.zip
