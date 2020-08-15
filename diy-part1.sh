@@ -24,7 +24,7 @@ sed -i 's/3.openwrt.pool.ntp.org'/3.ntp4.aliyun.com'/g' package/base-files/files
 echo '修改NTP设置 OK!'
 
 #主页添加CPU温度
-sed -i '725a \ \t\t<tr><td width="33%"><%:CPU Temperature%></td><td><%=luci.sys.exec("cut -c1-2 /sys/class/thermal/thermal_zone0/temp")%></td></tr>' package/lean/autocore/files/index.htm
+sed -i '725a \ \t\t<tr><td width="33%"><%:CPU Temperature%></td><td><%=luci.sys.exec("sed 's/../&./g' /sys/class/thermal/thermal_zone0/temp|cut -c1-4")%></td></tr>' package/lean/autocore/files/index.htm
 echo 'Add CPU Temperature in Index OK!'
 
 #修改内核版本为5.4
