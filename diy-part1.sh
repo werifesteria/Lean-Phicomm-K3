@@ -16,12 +16,23 @@
 # Add a feed source
 #sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 
+#修改NTP设置
+sed -i 's/0.openwrt.pool.ntp.org'/0.ntp1.aliyun.com'/g' package/base-files/files/bin/config_generate
+sed -i 's/1.openwrt.pool.ntp.org'/1.ntp2.aliyun.com'/g' package/base-files/files/bin/config_generate
+sed -i 's/2.openwrt.pool.ntp.org'/2.ntp3.aliyun.com'/g' package/base-files/files/bin/config_generate
+sed -i 's/3.openwrt.pool.ntp.org'/3.ntp4.aliyun.com'/g' package/base-files/files/bin/config_generate
+
+#主页添加CPU温度
+sed -i '725a \ \t\t<tr><td width="33%"><%:CPU Temperature%></td><td><%=luci.sys.exec("cut -c1-2 /sys/class/thermal/thermal_zone0/temp")%></td></tr>' package/lean/autocore/files/index.htm
+
 #修改内核版本为5.4
 sed -i 's/4.19/5.4/g' target/linux/bcm53xx/Makefile
 cat target/linux/bcm53xx/Makefile |grep KERNEL_PATCHVER
 
 #添加rufengsuixing的AdGuardHome插件
 git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/rufengsuixing
+sed -i '1,$d' package/rufengsuixing/root/usr/share/AdGuardHome/links.txt
+echo 'https://static.adguard.com/adguardhome/release/AdGuardHome_linux_armv5.tar.gz'>>package/rufengsuixing/root/usr/share/AdGuardHome/links.txt
 
 #添加likanchen的K3屏幕插件
 git clone https://github.com/likanchen/luci-app-k3screenctrl.git package/lean/luci-app-k3screenctrl
