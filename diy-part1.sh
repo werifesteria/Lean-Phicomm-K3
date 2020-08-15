@@ -21,7 +21,11 @@ sed -i 's/0.openwrt.pool.ntp.org/0.ntp1.aliyun.com/g' package/base-files/files/b
 sed -i 's/1.openwrt.pool.ntp.org/1.ntp2.aliyun.com/g' package/base-files/files/bin/config_generate
 sed -i 's/2.openwrt.pool.ntp.org/2.ntp3.aliyun.com/g' package/base-files/files/bin/config_generate
 sed -i 's/3.openwrt.pool.ntp.org/3.ntp4.aliyun.com/g' package/base-files/files/bin/config_generate
-echo '修改NTP设置 OK!'
+echo 'Alert NTP Settings OK!'
+
+#修改主机名
+sed -i "s/hostname='OpenWrt'/hostname='OpenWrt-Phicomm-K3'/g" package/base-files/files/bin/config_generate
+echo 'Alert Hostname OK!'
 
 #修改内核版本为5.4
 sed -i 's/4.19/5.4/g' target/linux/bcm53xx/Makefile
