@@ -19,8 +19,8 @@ on:
       - main
     paths:
       - '.config'
- # schedule:
-  #  - cron: 0 8 * * 5
+  schedule:
+    - cron: 0 20 * * *
  # watch:
   #  types: started
 
@@ -35,7 +35,7 @@ env:
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: true
-  UPLOAD_WETRANSFER: false
+  UPLOAD_WETRANSFER: true
   TZ: Asia/Shanghai
 
 jobs:
