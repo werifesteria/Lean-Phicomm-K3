@@ -48,7 +48,7 @@ echo '====================Add k3screen Plug OK!===================='
 #替换likanchen的K3屏幕驱动
 rm -rf package/lean/k3screenctrl
 git clone https://github.com/likanchen/k3screenctrl_build.git package/lean/k3screenctrl/
-sed -i 's/@TARGET_bcm53xx_DEVICE_phicomm-k3 +@KERNEL_DEVMEM +//g' package/lean/k3screenctrl/Makefile
+sed -i 's/@TARGET_bcm53xx_DEVICE_phicomm-k3 +@KERNEL_DEVMEM //g' package/lean/k3screenctrl/Makefile
 cat package/lean/k3screenctrl/Makefile |grep DEPENDS
 echo '====================Add k3screen Drive OK!===================='
 
@@ -58,7 +58,7 @@ unzip package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/master.zip 
 mv package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/phicommk3-firmware-master/brcmfmac4366c-pcie.bin.69027 package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
 rm -rf package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/master.zip
 rm -rf package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/phicommk3-firmware-master
-ls -la package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/ |grep 4366c
+ls -la package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/
 echo '====================Delete temp or release files!===================='
 
 
