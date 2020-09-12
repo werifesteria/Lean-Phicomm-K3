@@ -1,27 +1,4 @@
 #!/bin/bash
-#
-# Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
-#
-# This is free software, licensed under the MIT License.
-# See /LICENSE for more information.
-#
-# https://github.com/P3TERX/Actions-OpenWrt
-# File name: diy-part1.sh
-# Description: OpenWrt DIY script part 1 (Before Update feeds)
-#
-
-# Uncomment a feed source
-#sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
-
-#!/bin/bash
-#
-# This is free software, licensed under the MIT License.
-# See /LICENSE for more information.
-#
-# https://github.com/werifesteria/Openwrt-Phicomm-K3
-# File name: diy-part1.sh
-# Description: OpenWrt DIY script part 1 (Before Update feeds)
-#
 
 #添加lienol feed源
 sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
@@ -58,8 +35,12 @@ unzip package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/master.zip 
 mv package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/phicommk3-firmware-master/brcmfmac4366c-pcie.bin.69027 package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
 rm -rf package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/master.zip
 rm -rf package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/phicommk3-firmware-master
-ls -la package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/
+ls -la package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/ |grep 4366c
 echo '====================Delete temp or release files!===================='
 
-
-
+#移除bcm53xx的其他机型
+sed -i '141,385d' target/linux/bcm53xx/image/Makefile
+sed -i '150,179d' target/linux/bcm53xx/image/Makefile
+sed -i 's/k3screenctrl/luci-app-k3screenctrl/g' target/linux/bcm53xx/image/Makefile
+cat target/linux/bcm53xx/image/Makefile |grep DEVICE_PACKAGES
+echo '====================Remove other devices of bcm53xx!===================='
