@@ -5,6 +5,12 @@ sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.
 cat feeds.conf.default |grep lienol
 echo '====================Add lienol feed source OK!===================='
 
+
+#添加lienol feed源
+sed -i '$a src-git jerryk https://github.com/jerrykuku/openwrt-package' feeds.conf.default
+cat feeds.conf.default |grep jerryk
+echo '====================Add jerryk feed source OK!===================='
+
 #修改内核版本为5.4
 sed -i 's/KERNEL_PATCHVER:=4.19/KERNEL_PATCHVER:=5.4/g' target/linux/bcm53xx/Makefile
 cat target/linux/bcm53xx/Makefile |grep KERNEL_PATCHVER
