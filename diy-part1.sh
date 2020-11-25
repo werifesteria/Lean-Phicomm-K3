@@ -5,8 +5,7 @@ sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.
 cat feeds.conf.default |grep lienol
 echo '====================Add lienol feed source OK!===================='
 
-
-#添加lienol feed源
+#添加jerryk feed源
 #sed -i '$a src-git jerryk https://github.com/jerrykuku/openwrt-package' feeds.conf.default
 #cat feeds.conf.default |grep jerryk
 #echo '====================Add jerryk feed source OK!===================='
@@ -23,15 +22,15 @@ echo 'https://static.adguard.com/adguardhome/release/AdGuardHome_linux_armv5.tar
 cat package/lean/luci-app-adguardhome/root/usr/share/AdGuardHome/links.txt
 echo '====================Add AdGuardHome Plug OK!===================='
 
-#添加likanchen的K3屏幕插件
-git clone https://github.com/likanchen/luci-app-k3screenctrl.git package/lean/luci-app-k3screenctrl
+#添加lwz322的K3屏幕插件
+git clone https://github.com/lwz322/luci-app-k3screenctrl.git package/lean/luci-app-k3screenctrl
 ls -la package/lean/ |grep luci-app-k3screenctrl
 echo '====================Add k3screen Plug OK!===================='
 
-#替换likanchen的K3屏幕驱动
+#替换lwz322的K3屏幕驱动
 rm -rf package/lean/k3screenctrl
-git clone https://github.com/likanchen/k3screenctrl_build.git package/lean/k3screenctrl/
-sed -i 's/@TARGET_bcm53xx_DEVICE_phicomm-k3 +@KERNEL_DEVMEM //g' package/lean/k3screenctrl/Makefile
+git clone https://github.com/lwz322/k3screenctrl_build.git package/lean/k3screenctrl/
+#sed -i 's/@TARGET_bcm53xx_DEVICE_phicomm-k3 +@KERNEL_DEVMEM //g' package/lean/k3screenctrl/Makefile
 cat package/lean/k3screenctrl/Makefile |grep DEPENDS
 echo '====================Add k3screen Drive OK!===================='
 
