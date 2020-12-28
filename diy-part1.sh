@@ -5,6 +5,16 @@ sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall' feeds
 cat feeds.conf.default |grep passwall
 echo '====================Add lienol feed source OK!===================='
 
+#添加pymumu的smartdns软件源
+git clone -b lede https://github.com/pymumu/luci-app-smartdns package/lean/luci-app-smartdns
+ls -la package/lean/ |grep luci-app-smartdns
+echo '====================Add smartdns OK!===================='
+
+#添加woniuzfb的iptvhelper屏幕插件
+sed -i '$a src-git iptvhelp https://github.com/riverscn/openwrt-iptvhelper' feeds.conf.default
+cat feeds.conf.default |grep iptv
+echo '====================Add IPtvhelp OK!===================='
+
 #修改linux内核为5.4分支
 sed -i 's/KERNEL_PATCHVER:=4.19/KERNEL_PATCHVER:=5.4/g' target/linux/bcm53xx/Makefile
 cat target/linux/bcm53xx/Makefile |grep KERNEL_PATCHVER
@@ -53,3 +63,4 @@ echo '====================Replace k3wireless firmware OK!===================='
 #mv brcmfmac4366c-pcie.bin.69027 package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
 #chmod 0644 package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
 #echo '====================Replace k3wireless firmware OK!===================='
+
