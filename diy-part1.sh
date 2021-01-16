@@ -16,9 +16,9 @@ cat feeds.conf.default |grep iptv
 echo '====================Add IPtvhelp OK!===================='
 
 #修改linux内核为5.4分支
-sed -i 's/KERNEL_PATCHVER:=4.19/KERNEL_PATCHVER:=5.4/g' target/linux/bcm53xx/Makefile
-cat target/linux/bcm53xx/Makefile |grep KERNEL_PATCHVER
-echo '====================Alert Kernel Patchver to 5.4 OK!===================='
+#sed -i 's/KERNEL_PATCHVER:=4.19/KERNEL_PATCHVER:=5.4/g' target/linux/bcm53xx/Makefile
+#cat target/linux/bcm53xx/Makefile |grep KERNEL_PATCHVER
+#echo '====================Alert Kernel Patchver to 5.4 OK!===================='
 
 #添加rufengsuixing的AdGuardHome插件
 git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/lean/luci-app-adguardhome
