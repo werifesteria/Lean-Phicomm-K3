@@ -11,7 +11,7 @@ ls -la package/lean/ |grep luci-app-smartdns
 echo '====================Add smartdns OK!===================='
 
 #添加woniuzfb的iptvhelper屏幕插件
-sed -i '$a src-git iptvhelp https://github.com/riverscn/openwrt-iptvhelper' feeds.conf.default
+sed -i '$a src-git iptvhelp https://github.com/werifesteria/openwrt-iptvhelper' feeds.conf.default
 cat feeds.conf.default |grep iptv
 echo '====================Add IPtvhelp OK!===================='
 
@@ -63,4 +63,3 @@ echo '====================Replace k3wireless firmware OK!===================='
 #mv brcmfmac4366c-pcie.bin.69027 package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
 #chmod 0644 package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
 #echo '====================Replace k3wireless firmware OK!===================='
-
