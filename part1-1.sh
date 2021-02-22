@@ -1,23 +1,23 @@
 #!/bin/bash
 
-#添加xiaorouji的passwall软件源
-sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall' feeds.conf.default
-cat feeds.conf.default |grep passwall
-echo '====================Add lienol feed source OK!===================='
+#添加garypang13的软件
+sed -i '$a src-git garypang13 https://github.com/garypang13/openwrt-packages' feeds.conf.default
+cat feeds.conf.default |grep garypang13
+echo '====================Add garypang13 feed source OK!===================='
 
 #添加garypang13的bypass插件
-git clone -b main https://github.com/garypang13/luci-app-bypass package/lean/luci-app-bypass
-ls -la package/lean/ |grep luci-app-bypass
-echo '====================Add luci-app-bypass OK!===================='
+#git clone -b main https://github.com/garypang13/luci-app-bypass package/lean/luci-app-bypass
+#ls -la package/lean/ |grep luci-app-bypass
+#echo '====================Add luci-app-bypass OK!===================='
 
 #添加garypang13的dnsfilter插件
-git clone -b main https://github.com/garypang13/luci-app-dnsfilter package/lean/luci-app-dnsfilter
-ls -la package/lean/ |grep luci-app-dnsfilter
-echo '====================Add luci-app-dnsfilter OK!===================='
+#git clone -b main https://github.com/garypang13/luci-app-dnsfilter package/lean/luci-app-dnsfilter
+#ls -la package/lean/ |grep luci-app-dnsfilter
+#echo '====================Add luci-app-dnsfilter OK!===================='
 
-git clone -b 18.06 https://github.com/garypang13/luci-theme-edge package/lean/luci-theme-edge
-ls -la package/lean/ |grep luci-theme-edge
-echo '====================Add luci-theme-edge OK!===================='
+#git clone -b 18.06 https://github.com/garypang13/luci-theme-edge package/lean/luci-theme-edge
+#ls -la package/lean/ |grep luci-theme-edge
+#echo '====================Add luci-theme-edge OK!===================='
 
 #修改linux内核为5.4分支
 sed -i 's/KERNEL_PATCHVER:=4.19/KERNEL_PATCHVER:=5.4/g' target/linux/bcm53xx/Makefile
